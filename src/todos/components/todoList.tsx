@@ -10,8 +10,8 @@ export const TodoListComponent = (props: Props) => {
 
   return (
     <ul>
-      { todos.map((todo: TodoModel, i) => {
-        return <li key={i}>{ `${todo.title} - ${todo.description}` }</li>
+      { todos.map((todo: TodoModel) => {
+        return <li key={todo.id}>{ `${todo.title}` }</li>
       })}
     </ul>
   )

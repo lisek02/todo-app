@@ -4,10 +4,10 @@ import { Actions } from './todoListActions'
 import * as R from 'ramda';
 
 const initialState: TodoList = [
-  { title: 'Test', description: 'Desc', completed: false }
+  { id: Date.now(), title: 'Test', completed: false }
 ];
 
-const addItemReducer = (action: Actions) => R.append(action.payload);
+const addItemReducer = (action: Actions) => R.append({ ...action.payload, id: Date.now(), completed: false });
 
 const reducers = {
   [TodoListActions.ADD_ITEM]: addItemReducer
