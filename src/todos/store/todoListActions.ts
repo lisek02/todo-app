@@ -8,8 +8,12 @@ export enum TodoListActions {
   TOGGLE_COMPLETED = '[TodoList] Toggle completed',
 }
 
-interface AddItem extends Action { payload: TodoModel };
+export interface RemoveItemPayload { id: number };
 
-export type Actions = AddItem;
+interface AddItem extends Action { payload: TodoModel };
+interface RemoveItem extends Action { payload: RemoveItemPayload };
+
+export type Actions = AddItem & RemoveItem;
 
 export const addItem = (payload: TodoModel): AddItem => ({ type: TodoListActions.ADD_ITEM, payload });
+export const removeItem = (payload: RemoveItemPayload): RemoveItem => ({ type: TodoListActions.REMOVE_ITEM, payload });
