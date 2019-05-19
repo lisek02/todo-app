@@ -3,21 +3,22 @@ import { TodoModel } from '../models/todo.model';
 import { reduxForm, InjectedFormProps, SubmitHandler, Field } from 'redux-form';
 
 interface Props {
-  handleSubmit: SubmitHandler<TodoModel>
+  handleSubmit: SubmitHandler<TodoModel>,
+  todoItem?: TodoModel,
 }
 
 const Component: React.FunctionComponent<Props & InjectedFormProps<{}, Props>> = (props: Props) => {
-  const { handleSubmit } = props;
+  const { handleSubmit, todoItem } = props;
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <Field
           component="input"
-          name="title"
+          name={ todoItem ? 'editedTitle' : 'title' }
           type="text"
         />
-        <button type="submit">Add</button>
+        <button type="submit">{ todoItem ? 'Save' : 'Add' }</button>
       </div>
     </form>
   )

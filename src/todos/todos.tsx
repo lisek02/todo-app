@@ -5,7 +5,7 @@ import { Dispatch, bindActionCreators } from 'redux';
 import { TodoList, TodoModel } from './models/todo.model';
 import { TodoListComponent } from './components/todoList';
 import { TodoFormComponent } from './components/todoForm';
-import { addItem, removeItem } from './store/todoListActions';
+import { addItem, removeItem, toggleEdit, editItem, EditItemPayload } from './store/todoListActions';
 import { RemoveItemPayload } from './store/todoListActions';
 
 interface StateProps {
@@ -15,6 +15,8 @@ interface StateProps {
 interface DispatchProps {
   addItem: (payload: TodoModel) => void;
   removeItem: (payload: RemoveItemPayload) => void;
+  toggleEdit: () => void;
+  editItem: (payload: EditItemPayload) => void;
 }
 
 class Component extends React.Component<StateProps & DispatchProps, any>{
@@ -22,8 +24,15 @@ class Component extends React.Component<StateProps & DispatchProps, any>{
     return(
       <div className="TodoList">
         <h1>Todo List component</h1>
-        <TodoListComponent todos={ this.props.todoList } onRemoveItem={this.props.removeItem} />
-        <TodoFormComponent onSubmit={this.props.addItem}/>
+        <TodoListComponent
+          todos={ this.props.todoList }
+          onRemoveItem={this.props.removeItem}
+          onToggleEdit={this.props.toggleEdit}
+          onEditItem={this.props.editItem}
+        />
+        <TodoFormComponent
+          onSubmit={this.props.addItem}
+        />
       </div>
     );
   }
@@ -37,6 +46,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(
   {
     addItem,
     removeItem,
+    toggleEdit,
+    editItem,
   },
   dispatch
 );
