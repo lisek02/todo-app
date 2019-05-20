@@ -31,7 +31,7 @@ const Component: React.FunctionComponent<Props & InjectedFormProps<{}, Props>> =
     >
       <Field
         component={renderTextField}
-        name={ todoItem ? 'editedTitle' : 'title' }
+        name={ todoItem ? `${todoItem.id}` : 'title' }
         type="text"
         style={ fieldStyle }
       />

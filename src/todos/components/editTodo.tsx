@@ -19,13 +19,13 @@ export const EditTodoComponent = (props: Props) => {
       <TodoFormComponent
         onSubmit={
           (formValue: any) => {
-            editItem({ id: todo.id, title: formValue.editedTitle || todo.title });
+            editItem({ id: todo.id, title: formValue[todo.id] || todo.title });
             toggleEdit({ id: todo.id });
           }
         }
         todoItem={ todo }
         onToggleEdit={ toggleEdit }
-        initialValues={{ editedTitle: todo.title }}
+        initialValues={{ [todo.id]: todo.title }}
       />
     </div>
   )
