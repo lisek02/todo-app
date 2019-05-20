@@ -7,7 +7,6 @@ import { reducer as formReducer } from 'redux-form';
 export const history = createBrowserHistory();
 
 export function configureStore() {
-
   const reducer = combineReducers({
     router: connectRouter(history),
     form: formReducer,

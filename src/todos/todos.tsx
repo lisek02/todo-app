@@ -15,6 +15,7 @@ import {
   toggleCompleted
 } from './store/todoListActions';
 import { RemoveItemPayload } from './store/todoListActions';
+import { getTodos } from './store/todoList.selector';
 
 interface StateProps {
   todoList: TodoList
@@ -50,7 +51,7 @@ class Component extends React.Component<StateProps & DispatchProps, any>{
 }
 
 const mapStateToProps = R.applySpec<StateProps>({
-  todoList: R.prop('todoList')
+  todoList: getTodos
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(
