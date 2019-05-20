@@ -13,15 +13,19 @@ interface IdPayload { id: number };
 export interface RemoveItemPayload extends IdPayload {};
 export interface ToggleEditPayload extends IdPayload {};
 export interface EditItemPayload extends IdPayload { title: string };
+export interface ToggleCompletedPayload extends IdPayload {};
 
 interface AddItem extends Action { payload: TodoModel };
 interface RemoveItem extends Action { payload: RemoveItemPayload };
 interface ToggleEdit extends Action { payload: ToggleEditPayload };
 interface EditItem extends Action { payload: EditItemPayload };
+interface ToggleCompleted extends Action { payload: ToggleCompletedPayload };
 
-export type Actions = AddItem & RemoveItem & ToggleEdit & EditItemPayload;
+export type Actions = AddItem & RemoveItem & ToggleEdit & EditItem & ToggleCompleted;
 
 export const addItem = (payload: TodoModel): AddItem => ({ type: TodoListActions.ADD_ITEM, payload });
 export const removeItem = (payload: RemoveItemPayload): RemoveItem => ({ type: TodoListActions.REMOVE_ITEM, payload });
 export const toggleEdit = (payload: ToggleEditPayload): ToggleEdit => ({ type: TodoListActions.TOGGLE_EDIT, payload });
 export const editItem = (payload: EditItemPayload): EditItem => ({ type: TodoListActions.EDIT_ITEM, payload });
+export const toggleCompleted = (payload: ToggleCompletedPayload): ToggleCompleted =>
+  ({ type: TodoListActions.TOGGLE_COMPLETED, payload })

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { TodoModel } from '../models/todo.model';
-import { RemoveItemPayload, ToggleEditPayload } from '../store/todoListActions';
+import { RemoveItemPayload, ToggleEditPayload, ToggleCompletedPayload } from '../store/todoListActions';
 import Checkbox from '@material-ui/core/Checkbox';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import IconButton from '@material-ui/core/IconButton';
@@ -11,14 +11,15 @@ interface Props {
   todo: TodoModel;
   removeItem: (payload: RemoveItemPayload) => void;
   toggleEdit: (payload: ToggleEditPayload) => void;
+  toggleCompleted: (payload: ToggleCompletedPayload) => void;
 }
 
 export const DisplayTodoComponent = (props: Props) => {
-  const { todo, removeItem, toggleEdit } = props;
+  const { todo, removeItem, toggleEdit, toggleCompleted } = props;
 
   return (
     <div>
-      <Checkbox checked={todo.completed} />
+      <Checkbox checked={todo.completed} onClick={() => toggleCompleted({ id: todo.id })} />
       <span>{ todo.title }</span>
       <ListItemSecondaryAction>
         <IconButton aria-label="Delete" onClick={() => removeItem({ id: todo.id })}>
