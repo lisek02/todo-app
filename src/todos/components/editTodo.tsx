@@ -9,22 +9,24 @@ interface Props {
   toggleEdit: (payload: ToggleEditPayload) => void;
 }
 
+const EditTodoStyle = { width: '100%', marginLeft: 36, marginRight: 4 };
+
 export const EditTodoComponent = (props: Props) => {
   const { todo, editItem, toggleEdit } = props;
 
   return (
-    <div>
+    <div style={ EditTodoStyle }>
       <TodoFormComponent
         onSubmit={
           (formValue: any) => {
             editItem({ id: todo.id, title: formValue.editedTitle || todo.title });
-            toggleEdit({ id: todo.id});
+            toggleEdit({ id: todo.id });
           }
         }
         todoItem={ todo }
+        onToggleEdit={ toggleEdit }
         initialValues={{ editedTitle: todo.title }}
       />
-      <button onClick={() => toggleEdit({ id: todo.id })}>Cancel</button>
     </div>
   )
 }

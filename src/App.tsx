@@ -2,18 +2,20 @@ import * as React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { TodosComponent } from './todos/todos';
 import './App.css';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 class App extends React.Component{
   render(){
     return(
       <div className="App">
-        <h1>Todo App</h1>
-        <div>
-          <Link to="/">Home</Link>
-        </div>
-        <div>
-          <Link to="/add">Add</Link>
-        </div>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" color="inherit">Todo App</Typography>
+          </Toolbar>
+        </AppBar>
+ 
         <Route exact path="/" component={TodosComponent} />
         <Route path="/add" component={AddElement} />
       </div>

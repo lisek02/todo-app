@@ -19,19 +19,20 @@ interface DispatchProps {
   editItem: (payload: EditItemPayload) => void;
 }
 
+const TodoListStyle = { maxWidth: 800, margin: '15px auto', padding: 20 };
+
 class Component extends React.Component<StateProps & DispatchProps, any>{
   render(){
     return(
-      <div className="TodoList">
-        <h1>Todo List component</h1>
+      <div className="TodoList" style={ TodoListStyle }>
+        <TodoFormComponent
+          onSubmit={this.props.addItem}
+        />
         <TodoListComponent
           todos={ this.props.todoList }
           onRemoveItem={this.props.removeItem}
           onToggleEdit={this.props.toggleEdit}
           onEditItem={this.props.editItem}
-        />
-        <TodoFormComponent
-          onSubmit={this.props.addItem}
         />
       </div>
     );
