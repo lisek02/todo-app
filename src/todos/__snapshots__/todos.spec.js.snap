@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodosComponent should render correctly with todo as props 1`] = `
+<ContextProvider
+  value={null}
+>
+  <Component
+    addItem={[Function]}
+    editItem={[Function]}
+    removeItem={[Function]}
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    todoList={
+      Array [
+        Object {
+          "id": 1,
+          "title": "First item",
+        },
+        Object {
+          "id": 2,
+          "title": "Second item",
+        },
+      ]
+    }
+    toggleCompleted={[Function]}
+    toggleEdit={[Function]}
+  />
+</ContextProvider>
+`;
