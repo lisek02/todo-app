@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { TodoModel } from '../models/todo.model';
-import { RemoveItemPayload, ToggleEditPayload, ToggleCompletedPayload } from '../store/todoListActions';
+import { RemoveItemPayload, ToggleEditPayload, ToggleCompletedPayload } from '../store/todoList.actions';
 import Checkbox from '@material-ui/core/Checkbox';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import IconButton from '@material-ui/core/IconButton';

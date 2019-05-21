@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { TodoModel } from '../models/todo.model';
-import { ToggleEditPayload, EditItemPayload } from '../store/todoListActions';
+import { ToggleEditPayload, EditItemPayload } from '../store/todoList.actions';
 import { TodoFormComponent } from './todoForm';
 
 interface Props {

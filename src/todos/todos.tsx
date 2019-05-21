@@ -13,8 +13,8 @@ import {
   EditItemPayload,
   ToggleCompletedPayload,
   toggleCompleted
-} from './store/todoListActions';
-import { RemoveItemPayload } from './store/todoListActions';
+} from './store/todoList.actions';
+import { RemoveItemPayload } from './store/todoList.actions';
 import { getTodos } from './store/todoList.selector';
 import { SearchComponent } from '../shared/components/search';
 import { FilterComponent } from '../shared/components/filter';

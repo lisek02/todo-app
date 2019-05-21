@@ -5,7 +5,7 @@ import {
   ToggleEditPayload,
   EditItemPayload,
   ToggleCompletedPayload
-} from '../store/todoListActions';
+} from '../store/todoList.actions';
 import { DisplayTodoComponent } from './displayTodo';
 import { EditTodoComponent } from './editTodo';
 import List from '@material-ui/core/List';

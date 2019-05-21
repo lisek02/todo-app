@@ -3,7 +3,7 @@ import { TodoModel } from '../models/todo.model';
 import { reduxForm, InjectedFormProps, SubmitHandler, Field } from 'redux-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { ToggleEditPayload } from '../store/todoListActions';
+import { ToggleEditPayload } from '../store/todoList.actions';
 import IconButton from '@material-ui/core/IconButton';
 import CancelIcon from '@material-ui/icons/Cancel';
 import DoneIcon from '@material-ui/icons/Done';

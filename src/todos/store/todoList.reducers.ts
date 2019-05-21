@@ -1,6 +1,6 @@
-import { TodoListActions } from './todoListActions';
+import { TodoListActions } from './todoList.actions';
 import { TodoList } from '../models/todo.model'
-import { Actions } from './todoListActions'
+import { Actions } from './todoList.actions'
 import * as R from 'ramda';
 
 const initialState: TodoList = [];
