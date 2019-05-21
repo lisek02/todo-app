@@ -17,14 +17,9 @@ class App extends React.Component{
         </AppBar>
  
         <Route exact path="/" component={TodosComponent} />
-        <Route path="/add" component={AddElement} />
       </div>
     );
   }
-}
-
-function AddElement() {
-  return <h1>Add todo item</h1>
 }
 
 export default App;
