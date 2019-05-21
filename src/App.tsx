@@ -5,7 +5,6 @@ import './App.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { FilterComponent } from './shared/components/filter';
 
 class App extends React.Component{
   render(){
@@ -14,7 +13,6 @@ class App extends React.Component{
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" color="inherit">Todo App</Typography>
-            <FilterComponent />
           </Toolbar>
         </AppBar>
  

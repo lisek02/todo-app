@@ -20,12 +20,13 @@ interface Props {
 }
 
 const listItemStyle = { padding: '5px 0' };
+const listStyle = { marginTop: 20 };
 
 export const TodoListComponent = (props: Props) => {
   const { todos, onRemoveItem, onToggleEdit, onEditItem, onToggleCompleted } = props;
 
   return (
-    <List>
+    <List style={ listStyle }>
       { todos.map((todo: TodoModel) => {
         return(
           <ListItem key={todo.id} style={ listItemStyle }>

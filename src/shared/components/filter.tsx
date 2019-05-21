@@ -2,10 +2,10 @@ import * as React from 'react';
 import { reduxForm, InjectedFormProps, Field } from 'redux-form';
 import { InputLabel, Select, MenuItem } from '@material-ui/core';
 
-const renderSelectField = (props: any) => (
+const renderSelectField = ({ input }) => (
   <Select
     style={fieldStyle}
-    {...props.input}
+    {...input}
   >
     <MenuItem value={'all'}>All</MenuItem>
     <MenuItem value={'complete'}>Complete</MenuItem>
@@ -13,8 +13,8 @@ const renderSelectField = (props: any) => (
   </Select>
 )
 
-const inputLabelStyle = { color: 'white', marginLeft: 30 };
-const fieldStyle = { color: 'white', minWidth: 150, margin: '0 10px' };
+const inputLabelStyle = { marginLeft: 10 };
+const fieldStyle = { minWidth: 150, margin: '0 10px' };
 
 const Component: React.FunctionComponent<{} & InjectedFormProps<{}, {}>> = () => {
   return(

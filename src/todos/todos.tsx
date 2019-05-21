@@ -16,6 +16,8 @@ import {
 } from './store/todoListActions';
 import { RemoveItemPayload } from './store/todoListActions';
 import { getTodos } from './store/todoList.selector';
+import { SearchComponent } from '../shared/components/search';
+import { FilterComponent } from '../shared/components/filter';
 
 interface StateProps {
   todoList: TodoList
@@ -30,11 +32,16 @@ interface DispatchProps {
 }
 
 const TodoListStyle = { maxWidth: 800, margin: '15px auto', padding: 20 };
+const filtersContainerStyle = { display: 'flex', marginBottom: 40, alignItems: 'baseline' };
 
 class Component extends React.Component<StateProps & DispatchProps, any>{
   render(){
     return(
       <div className="TodoList" style={ TodoListStyle }>
+        <div style={ filtersContainerStyle }>
+          <SearchComponent />
+          <FilterComponent />
+        </div>
         <TodoFormComponent
           onSubmit={this.props.addItem}
         />
