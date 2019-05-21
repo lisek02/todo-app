@@ -18,6 +18,7 @@ import { RemoveItemPayload } from './store/todoListActions';
 import { getTodos } from './store/todoList.selector';
 import { SearchComponent } from '../shared/components/search';
 import { FilterComponent } from '../shared/components/filter';
+import { Card } from '@material-ui/core';
 
 interface StateProps {
   todoList: TodoList
@@ -33,18 +34,21 @@ interface DispatchProps {
 
 const TodoListStyle = { maxWidth: 800, margin: '15px auto', padding: 20 };
 const filtersContainerStyle = { display: 'flex', marginBottom: 40, alignItems: 'baseline' };
+const cardStyle = { padding: '10px 20px 20px 10px', backgroundColor: '#fafafa' };
 
 class Component extends React.Component<StateProps & DispatchProps, any>{
   render(){
     return(
       <div className="TodoList" style={ TodoListStyle }>
-        <div style={ filtersContainerStyle }>
-          <SearchComponent />
-          <FilterComponent />
-        </div>
-        <TodoFormComponent
-          onSubmit={this.props.addItem}
-        />
+        <Card style={ cardStyle }>
+          <div style={ filtersContainerStyle }>
+            <SearchComponent />
+            <FilterComponent />
+          </div>
+          <TodoFormComponent
+            onSubmit={this.props.addItem}
+          />
+        </Card>
         <TodoListComponent
           todos={ this.props.todoList }
           onRemoveItem={this.props.removeItem}

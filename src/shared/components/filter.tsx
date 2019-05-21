@@ -14,7 +14,7 @@ const renderSelectField = ({ input }) => (
 )
 
 const inputLabelStyle = { marginLeft: 10 };
-const fieldStyle = { minWidth: 150, margin: '0 10px' };
+const fieldStyle = { minWidth: 120, margin: '0 10px' };
 
 const Component: React.FunctionComponent<{} & InjectedFormProps<{}, {}>> = () => {
   return(
