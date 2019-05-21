@@ -9,9 +9,10 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import DoneIcon from '@material-ui/icons/Done';
 
 interface Props {
-  handleSubmit: SubmitHandler<TodoModel>;
+  handleSubmit?: SubmitHandler<TodoModel>;
   todoItem?: TodoModel;
   onToggleEdit?: (payload: ToggleEditPayload) => void;
+  reset?: () => void;
 }
 
 const formStyle = { display: 'flex', justifyContent: 'space-between' };
@@ -21,11 +22,11 @@ const buttonsContainerStyle = { display: 'flex '};
 const renderTextField = ({ input, ...custom }) => <TextField {...input} {...custom} />;
 
 const Component: React.FunctionComponent<Props & InjectedFormProps<{}, Props>> = (props: Props) => {
-  const { handleSubmit, todoItem, onToggleEdit } = props;
+  const { handleSubmit, todoItem, onToggleEdit, reset } = props;
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={(args) => { handleSubmit(args); reset() }}
       className="AddInput"
       style={ formStyle }
     >
